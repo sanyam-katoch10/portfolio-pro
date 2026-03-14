@@ -1,4 +1,6 @@
+// @ts-ignore
 import { gsap } from "gsap";
+// @ts-ignore
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // @ts-ignore
 import { ScrollSmoother } from "gsap-trial/ScrollSmoother";

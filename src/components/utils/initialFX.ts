@@ -1,6 +1,8 @@
 // @ts-ignore
 import { SplitText } from "gsap-trial/SplitText";
+// @ts-ignore
 import gsap from "gsap";
+// @ts-ignore
 import { smoother } from "../Navbar";
 
 export function initialFX() {
