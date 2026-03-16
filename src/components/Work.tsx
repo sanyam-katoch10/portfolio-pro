@@ -3,44 +3,36 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
-const projectsData = [
+const projects = [
   {
-    name: "MiniGit — Version Control System",
-    bullets: [
-      "Built from scratch using 7 core DSA concepts — no external DS libraries used",
-      "Features branching, merging, undo/redo, commit history via binary trees, and multi-repository support",
-      "Powered by a FastAPI backend with 17 REST endpoints and an interactive terminal UI mimicking a real Git CLI",
-    ],
-    tags: ["C++", "Python", "FastAPI", "DSA", "Render"],
-    image: "/assets/images/minigit.png",
-    github: "https://github.com/sanyam-katoch10/Mini-Git-Version-Control-System",
-    demo: "https://mini-git-dsa.onrender.com",
+    title: "Solid Starters",
+    category: "Low-Code Platform",
+    tools: "Angular, Next.js, NestJS, MongoDB",
+    image: "/images/Solidx.png",
   },
   {
-    name: "BotShield — ML CAPTCHA Refinement System",
-    bullets: [
-      "ML-powered CAPTCHA refinement system that generates, classifies, and adjusts CAPTCHA difficulty dynamically",
-      "CNN classifier trained on 6,000 labeled images achieving 97% validation accuracy",
-      "Adaptive Predict → Adjust → Re-generate → Finalize loop that fine-tunes complexity for maximum bot resistance",
-    ],
-    tags: ["CNN", "TensorFlow", "Keras", "Streamlit", "Python"],
-    image: "/assets/images/botshield.png",
-    github:
-      "https://github.com/sanyam-katoch10/BOtShield_ML-CAPTCHA-Refinement-System",
-    demo: "https://botshield0captcha-sam.streamlit.app/",
+    title: "Radix",
+    category: "E-Commerce",
+    tools: "Angular, Next.js, NestJS, CMS",
+    image: "/images/radix.png",
   },
   {
-    name: "SegVision — PSO Image Segmentation",
-    bullets: [
-      "PSO-powered image segmentation web app that segments images into meaningful color regions",
-      "Encodes pixels as 5D spatial feature vectors [R,G,B,x,y] with KMeans++ warm-start seeding",
-      "Real-time SSE progress streaming with non-blocking threaded backend, deployed on Railway",
-    ],
-    tags: ["Python", "Flask", "NumPy", "OpenCV", "PSO", "SSE"],
-    image: "/assets/images/segvision.png",
-    github:
-      "https://github.com/sanyam-katoch10/SegViSion_PSO_Image_Segmentation_System",
-    demo: "https://segvision.up.railway.app",
+    title: "Bond Cancellation",
+    category: "Import-Export Automation",
+    tools: "Angular, Next.js, NestJS, Workflows",
+    image: "/images/bond.png",
+  },
+  {
+    title: "Sapphire",
+    category: "CRM Platform",
+    tools: "AngularJS, NestJS, PostgreSQL",
+    image: "/images/sapphire.png",
+  },
+  {
+    title: "Mpro",
+    category: "Insurance Platform",
+    tools: "React.js, Node.js, Microservices",
+    image: "/images/Maxlife.png",
   },
 ];
 
@@ -60,13 +52,13 @@ const Work = () => {
 
   const goToPrev = useCallback(() => {
     const newIndex =
-      currentIndex === 0 ? projectsData.length - 1 : currentIndex - 1;
+      currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
     goToSlide(newIndex);
   }, [currentIndex, goToSlide]);
 
   const goToNext = useCallback(() => {
     const newIndex =
-      currentIndex === projectsData.length - 1 ? 0 : currentIndex + 1;
+      currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
     goToSlide(newIndex);
   }, [currentIndex, goToSlide]);
 
@@ -104,7 +96,7 @@ const Work = () => {
                 transform: `translateX(-${currentIndex * 100}%)`,
               }}
             >
-              {projectsData.map((project, index) => (
+              {projects.map((project, index) => (
                 <div className="carousel-slide" key={index}>
                   <div className="carousel-content">
                     <div className="carousel-info">
@@ -112,22 +104,18 @@ const Work = () => {
                         <h3>0{index + 1}</h3>
                       </div>
                       <div className="carousel-details">
-                        <h4>{project.name}</h4>
+                        <h4>{project.title}</h4>
                         <p className="carousel-category">
-                          {project.tags.join(" • ")}
+                          {project.category}
                         </p>
                         <div className="carousel-tools">
                           <span className="tools-label">Tools & Features</span>
-                          <p>{project.bullets.join(" • ")}</p>
+                          <p>{project.tools}</p>
                         </div>
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
-                      <WorkImage
-                        image={project.image}
-                        alt={project.name}
-                        link={project.demo || project.github}
-                      />
+                      <WorkImage image={project.image} alt={project.title} />
                     </div>
                   </div>
                 </div>
@@ -137,21 +125,9 @@ const Work = () => {
 
           {/* Dot Indicators */}
           <div className="carousel-dots">
-            {projectsData.map((_, index) => (
+            {projects.map((_, index) => (
               <button
                 key={index}
                 className={`carousel-dot ${index === currentIndex ? "carousel-dot-active" : ""
                   }`}
                 onClick={() => goToSlide(index)}
-                aria-label={`Go to project ${index + 1}`}
-                data-cursor="disable"
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Work;
