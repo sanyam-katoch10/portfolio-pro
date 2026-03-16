@@ -5,34 +5,34 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "Diabetes Risk Prediction",
+    category: "Supervised Learning",
+    tools: "Python, scikit-learn, Pandas, Model Evaluation",
+    image: "/src/assets/react.svg",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "Image Classification",
+    category: "Deep Learning",
+    tools: "PyTorch/TensorFlow, CNNs, Data Augmentation, Inference",
+    image: "/src/assets/react.svg",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
+    title: "NLP Text Analytics",
+    category: "Natural Language Processing",
+    tools: "Transformers, Embeddings, Fine-tuning, Evaluation",
+    image: "/src/assets/react.svg",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
+    title: "Computer Vision Segmentation",
+    category: "Computer Vision",
+    tools: "OpenCV, U-Net/Mask R-CNN, Metrics, Deployment-ready",
+    image: "/src/assets/react.svg",
   },
   {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "ML Model Deployment",
+    category: "MLOps / Production",
+    tools: "FastAPI, Docker, Monitoring, CI/CD",
+    image: "/src/assets/react.svg",
   },
 ];
 
@@ -131,3 +131,15 @@ const Work = () => {
                 className={`carousel-dot ${index === currentIndex ? "carousel-dot-active" : ""
                   }`}
                 onClick={() => goToSlide(index)}
+                aria-label={`Go to project ${index + 1}`}
+                data-cursor="disable"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Work;
